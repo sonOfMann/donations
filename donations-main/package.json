@@ -1,0 +1,30 @@
+{
+  "name": "donations",
+  "version": "0.0.1",
+  "description": "Donation application form page",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geezyjapan/donations.git"
+  },
+  "keywords": [
+    "donations",
+    "unicef",
+    "bitcoin",
+    "bec",
+    "employement"
+  ],
+  "author": "captain geezy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/geezyjapan/donations/issues"
+  },
+  "homepage": "https://github.com/geezyjapan/donations#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5"
+  }
+}

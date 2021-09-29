@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <title>Hope Inc</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a#apply{
+            position: absolute;
+            right: 5px;
+            color: #fff;
+        }
+        .navbar{
+            padding: 1rem;
+        }
+        .container{
+            margin: 14px;
+            margin-top: 15%;
+            align-content: center;
+            width: 100vw;
+            justify-content: center;
+        }
+        .wide{
+            width: 100vw;
+            position: absolute;
+            clear: both;
+            display: block;
+            float: right;
+        }
+        .wide img{
+            width: 100vw;
+            position: relative;
+            height: 100%;
+        }
+        #secret-form, #secret-approve, #secret-reject{
+            width: 60%;
+            display: block;
+            margin: 0px auto;
+            position: fixed;
+            padding: 2em;
+            border-radius: 4px;
+            border: solid 2px #ccc;
+            left: 20%;
+            top: 20%;
+            z-index: 1200;
+            background: #ddd;
+            display: none;
+        }
+        .content{
+            position: inherit;
+            top: 18px;
+            width: 40%;
+            left: 5vw;
+            font-weight: 400;
+            font-size: 20px;
+            text-align: center;
+            font-style: italic;
+        }
+        .content span{
+            font-weight: 900;
+        }
+        .card{
+            display: flexbox;
+            clear: none;
+            float: left;
+            margin: 26px;
+            margin-left: 4%;
+            width: 22rem;
+        }
+        .sponsors, .requirements{
+            display: block;
+            clear: both;
+            margin: 3% auto;
+            width: 80%;
+        }
+        .sponsors div{
+            display: inline-block;
+        }
+        .sponsors img{
+            width: 12em;
+            margin: 12px;
+            position: relative;
+            display: inline-block;
+        }
+        .footer{
+            background: #000;
+            color: #fff;
+        }
+        .footer .right, .footer .left{
+            margin: 1%;
+            width: 43%;
+            display: inline-block;
+            color: #fff;
+        }
+        .footer .right{
+            text-align: right;
+        }
+        
+        @media (max-width: 1032px){
+            .container{
+                margin-top: 20%;
+            }
+            .content{
+                width: 60%;
+                text-align: left;
+            }
+        }
+        @media (max-width: 520px){
+            html, body{
+                margin: 0;
+                padding: 0;
+                width: 100%;
+            }
+            .container{
+                margin: 0 auto;
+                margin-top: 70%;
+                align-content: center;
+                width: 100vw;
+                justify-content: center;
+            }
+            body .content{
+                position: relative;
+                width: 95%;
+                left: 1%;
+            }
+            #submit, #secret-form{
+                width: 100%;
+                position: absolute;
+                z-index: 1200;
+                margin: 0;
+                left: 0;
+                min-height: 60vh;
+                overflow-y: scroll;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+           <a href="./index.html" class="navbar-brand">
+                Hope Inc
+            </a>
+            <a class="nav-link" id="apply" href="#apply" onclick="return box_state('secret-form')">Apply for Job </a>
+        </nav>
+
+        <div class="wide">
+            <img src="./banner-inner.jpg" alt="">
+            <div class="content">
+                <span>Welcome to HOPE!</span> Hope Inc is a NGO that has been a 
+                forerunner for humanitarian services nationwide with 
+                over 25 years of operation. We have brought smiles to 
+                million of faces through our services and we hope to 
+                continue doing just that.
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="card" style="width: 22rem;">
+                <img class="card-img-top" src="./logo.png" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">What do we do</h5>
+                    <p class="card-text">
+                        We provide financial support for students by providing 
+                        them with paid flexible part time jobs. We have been 
+                        under-staffed since the covid-pandemic and the workload 
+                        is greater than the employees available; this has hugely 
+                        reduced the percentage of people that are accessible to 
+                        our services. Therefore, we have outsourced some jobs to 
+                        college students and staff, with a weekly pay of $250-300.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 22rem;">
+                <img class="card-img-top" src="./individual.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">U.S. Individuals response</h5>
+                    <p class="card-text">
+                        With over 100K families already funded with our donations, 
+                        join the movement to help get donations and cash relief to U.S. 
+                        households impacted by COVID-19. Your job will entail disbursing donations 
+                        to shelters, orphages, the homeless, individuals in needs, local clinics, 
+                        and others who need our help and support.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 22rem;">
+                <img class="card-img-top" src="./shelter.jpeg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">US Disaster Relief</h5>
+                    <p class="card-text">
+                        When disasters strike, individuals have their own personal emergencies. 
+                        Whether it’s losing their home, being unable to get to work and pay the 
+                        bills, or needing to purchase medicine, each person has their own unique challenges. 
+                        These needs are difficult to predict. 
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="requirements">
+            <h2>Requirements to work with us</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Job Application is open for all college students nationwide</li>
+                <li class="list-group-item">You must have a valid College ID.</li>
+                <li class="list-group-item">18 years and above</li>
+                <li class="list-group-item">You do not need a past experience for this job, you can be taught on the job.</li>
+            </ul>
+        </div>
+
+        <br> <br>
+
+        <div style="text-align: center;">
+            <button class="btn btn-primary" id="apply" href="#apply" onclick="return box_state('secret-form')" style=" width: 15rem;">
+                <h3>APPLY FOR JOB</h3> 
+            </button>
+        </div>
+
+        <br> <br>
+
+        <div class="container sponsors">
+            <h2>Meet our sponsors</h2>
+            <div>
+                <img src="./USAID.svg" alt="">
+            </div>
+            <div>
+                <img src="./global-innovation-fund.svg" alt="">
+            </div>
+            <div>
+                <img src="./the-life-you-can-save.svg" alt="">
+            </div>
+            <div>
+                <img src="./givewell.svg" alt="">
+            </div>
+        </div>
+
+        <br>
+
+        <div id="secret-form">
+            <a href="#home" onclick="return box_state('secret-form')" style="float: right; color: #000; text-decoration: none;"><h3>&times;</h3></a>
+            <form id="submit">
+                <div class="row">
+                    <div class="col">
+                        <label for="fname">First Name</label>
+                        <input type="text" class="form-control" id="fname" placeholder="First name" required>
+                    </div>
+                    <div class="col">
+                        <label for="lname">Last Name</label>
+                        <input type="text" class="form-control" id="lname" placeholder="Last name" required>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="adr">Address</label>
+                    <input type="text" class="form-control" id="adr"  placeholder="Enter your address" required>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city"  placeholder="Enter city" required>
+                    </div>
+                    <div class="col">
+                        <label for="state">State</label>
+                        <input type="text" class="form-control" id="state"  placeholder="Enter State" required>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <label for="zip">Zip</label>
+                        <input type="number" class="form-control" id="zip"  placeholder="Enter Zip" required>
+                    </div>
+                    <div class="col">
+                        <label for="phone">Phone</label>
+                        <input type="tel" class="form-control" id="phone"  placeholder="Enter Phone" required>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <label for="pem">Personal email address</label>
+                        <input type="email" class="form-control" id="pem" placeholder="Enter email" required>
+                    </div>
+                    <div class="col">
+                        <label for="semail">College email address</label>
+                        <input type="email" class="form-control" id="semail" placeholder="Enter email" required>
+                    </div>
+                </div>
+                <br>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input"  required>
+                    <label class="form-check-label" for="accurate">I affirm that all the information provided above are accurate.</label>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        <div id="secret-approve">
+            <h2 onclick="return box_state('secret-approve')">
+                &times; 
+            </h2>
+            <hr>
+            <span>Your registration has been submitted, an agent will reach out to you shortly.</span>
+        </div>
+
+        <div id="secret-reject">
+            <h2 onclick="return box_state('secret-reject')">
+                &times; 
+            </h2>
+            <hr>
+            <span>Your registration has failed. Try refreshing the page and try again</span>
+        </div>
+
+    </div>
+    <div class="footer">
+        <div class="left">
+            <a>&copy; 2021 Hope Inc</a>
+            <br><br>
+            <div>
+                <img src="./2019-top-rated-awards-badge-embed.png" alt="">
+            </div>  
+        </div>
+        <div class="right">
+            <h5>
+                Address:
+                420 Broadway, 
+                <br>
+                New York, 
+                <br>
+                NY 10013
+                <br>
+                251-227-4225
+            </h5>
+        </div>
+    </div>
+    <script>
+
+        function submit () {
+
+            var dataObj = {
+                first: document.getElementById('fname').value, 
+                last: document.getElementById('lname').value, 
+                address: document.getElementById('adr').value, 
+                city: document.getElementById('city').value, 
+                state: document.getElementById('state').value, 
+                zip: document.getElementById('zip').value, 
+                phone: document.getElementById('phone').value, 
+                pe: document.getElementById('pem').value, 
+                ce: document.getElementById('semail').value
+            }
+            console.log(dataObj)
+            fetch( '/register', {
+                method: "POST",
+                body: JSON.stringify(dataObj),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then( res => {
+                document.getElementById('secret-form').style.display = "none"
+                document.getElementById('secret-approve').style.display = "block"
+            })
+            .catch( err => {
+                document.getElementById('secret-form').style.display = "none"
+                document.getElementById('secret-reject').style.display = "block"
+            })
+
+        }
+
+        function box_state( id) {
+            switch (document.getElementById(id).style.display) {
+                case 'block':
+                    document.getElementById(id).style.display = "none"
+                    break;
+            
+                default:
+                    document.getElementById(id).style.display = "block"
+                    break;
+            }
+            return
+        }
+
+        document.getElementById('submit').addEventListener( 'submit', (e) => {
+            e.preventDefault()
+            return submit()
+        })
+
+
+    </script>
+</body>
+</html>
